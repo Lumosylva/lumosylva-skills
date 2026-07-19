@@ -1,0 +1,11 @@
+{
+  "name": "lumosylva-project",
+  "description": "A set of structured programming expert skills",
+  "version": "1.0.0",
+  "author": {
+    "name": "Lumosylva"
+  },
+  "homepage": "https://github.com/Lumosylva/lumosylva-skills",
+  "repository": "https://github.com/Lumosylva/lumosylva-skills",
+  "license": "MIT"
+}

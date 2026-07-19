@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "lumosylva",
+  "version": "1.0.0",
+  "description": "Lumosylva AI Ecosystem — Skills for Project",
+  "owner": {
+    "name": "Lumosylva",
+    "email": "donnymoving@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "project",
+      "description": "A set of structured programming expert skills",
+      "version": "1.0.0",
+      "author": {
+        "name": "Lumosylva"
+      },
+      "source": "./plugins/project",
+      "category": "productivity"
+    }
+  ]
+}
