@@ -1,70 +1,70 @@
 # project
 
-一套结构化的编程专家 Skill，通过五种协作模式引导 AI 按照严谨的工作流进行软件开发，避免未经授权的修改和破坏性变更。
+A set of structured expert programming skills that guide AI through five collaborative modes for rigorous software development workflows, preventing unauthorized modifications and destructive changes.
 
-## 设计理念
+## Design Philosophy
 
-AI 编程工具往往过于急切——在未获得明确许可的情况下擅自修改代码，假设自己比用户更了解情况。这个 Skill 通过强制性的模式声明和严格的职责边界，确保 AI 始终在正确的阶段做正确的事。
+AI coding tools tend to be overly eager—making changes without explicit permission and assuming they know better than the user. This skill enforces mandatory mode declarations and strict responsibility boundaries to ensure AI always does the right thing at the right stage.
 
-## 项目结构
+## Project Structure
 
 ```
 skills/
-├── project-skill/         # 通用规范（所有模式的基底）
-├── project-research/      # 模式1：研究
-├── project-innovate/      # 模式2：创新
-├── project-plan/          # 模式3：规划
-├── project-execute/       # 模式4：执行
-└── project-review/        # 模式5：审查
+├── project-skill/         # General spec (foundation for all modes)
+├── project-research/      # Mode 1: Research
+├── project-innovate/      # Mode 2: Innovate
+├── project-plan/          # Mode 3: Plan
+├── project-execute/       # Mode 4: Execute
+└── project-review/        # Mode 5: Review
 ```
 
-## 五种模式
+## Five Modes
 
-| 模式 | 声明指令 | 目的 | 核心能力 |
-|------|----------|------|----------|
-| 研究 | `/project-research` | 信息收集与深入理解 | 读取文件、分析架构、识别技术债务 |
-| 创新 | `/project-innovate` | 头脑风暴潜在方法 | 探索多种方案、评估利弊、记录发现 |
-| 规划 | `/project-plan` | 创建详尽的技术规范 | 文件路径、函数签名、清单生成 |
-| 执行 | `/project-execute` | 准确实施已批准的计划 | 按清单逐项实施、记录进度 |
-| 审查 | `/project-review` | 验证实施与计划的符合度 | 逐行对比、标记偏差、准备提交 |
+| Mode | Command | Purpose | Core Capabilities |
+|------|---------|---------|-------------------|
+| Research | `/project-research` | Information gathering and deep understanding | Read files, analyze architecture, identify technical debt |
+| Innovate | `/project-innovate` | Brainstorm potential approaches | Explore multiple solutions, weigh pros and cons, document findings |
+| Plan | `/project-plan` | Create detailed technical specifications | File paths, function signatures, checklist generation |
+| Execute | `/project-execute` | Accurately implement the approved plan | Follow checklist item by item, track progress |
+| Review | `/project-review` | Verify implementation matches the plan | Line-by-line comparison, flag deviations, prepare commits |
 
-## 工作流程
+## Workflow
 
 ```
-研究 → 创新 → 规划 → 执行 → 审查
-  ↑                           │
-  └───── 发现问题时回退 ──────┘
+Research → Innovate → Plan → Execute → Review
+  ^                              |
+  └───── Rollback on issues ─────┘
 ```
 
-每次新对话默认进入 **research 模式**，通过明确的信号指令切换到下一阶段。
+Each new session starts in **Research mode** by default. Switch to the next phase using explicit signal commands.
 
-## 核心协议
+## Core Protocol
 
-- **模式声明**：每个响应开头必须用 `[MODE: XXX]` 声明当前模式
-- **职责隔离**：每种模式只能做该阶段允许的事
-- **回退机制**：执行阶段发现问题时，自动回到规划模式重新调整
-- **模式切换**：必须通过明确信号（如 `/project-execute`）触发，不可自行切换
-- **无表情符号**：除非明确要求，输出不使用表情符号
+- **Mode Declaration**: Every response must begin with `[MODE: XXX]` declaring the current mode
+- **Responsibility Isolation**: Each mode may only perform actions allowed at that stage
+- **Rollback Mechanism**: When issues are discovered during execution, automatically return to Plan mode for readjustment
+- **Mode Switching**: Must be triggered by explicit signals (e.g., `/project-execute`); never switch on your own
+- **No Emojis**: Output must not use emojis unless explicitly requested
 
-## 安装
+## Installation
 
-将 `skills/` 目录下的文件夹复制到你的 Skill 目录中（如 `.claude/skills/` 或对应 AI 工具的 skill 路径）。
+Copy the folders under the `skills/` directory into your skills directory (e.g., `.claude/skills/` or the corresponding skill path for your AI tool).
 
-## 占位符说明
+## Placeholders
 
-| 占位符 | 说明 | 示例 |
-|--------|------|------|
-| `TASK_FILE_NAME` | 任务文件名 | `2025-01-14_1` |
-| `TASK_IDENTIFIER` | 任务短标识 | `fix-cache-bug` |
-| `MAIN_BRANCH` | 主分支名 | `main` |
-| `YOLO_MODE` | 确认模式 | `Ask` / `On` / `Off` |
+| Placeholder | Description | Example |
+|-------------|-------------|---------|
+| `TASK_FILE_NAME` | Task file name | `2025-01-14_1` |
+| `TASK_IDENTIFIER` | Short task identifier | `fix-cache-bug` |
+| `MAIN_BRANCH` | Main branch name | `main` |
+| `YOLO_MODE` | Confirmation mode | `Ask` / `On` / `Off` |
 
-### Yolo 模式
+### Yolo Mode
 
-- **Ask**：每个步骤前询问用户确认
-- **On**：自动执行所有步骤（高风险）
-- **Off**（默认）：要求每个重要步骤的用户确认
+- **Ask**: Prompt the user for confirmation before each step
+- **On**: Execute all steps automatically (high risk)
+- **Off** (default): Require user confirmation for every significant step
 
-## 许可
+## License
 
 MIT

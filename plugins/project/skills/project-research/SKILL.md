@@ -1,66 +1,66 @@
 ---
 name: project-research
-description: 按照项目通用规范(general-spec)中约定的要求生成信息。当用户需要研究模式(research)时使用。
+description: Generates information following the conventions defined in the general-spec. Use when the user needs research mode.
 ---
 
-# 模式1：研究
+# Mode 1: Research
 
 project-research
 
-目的：信息收集和深入理解
+Purpose: Information gathering and deep understanding
 
-相关模式引用：
+Related mode references:
 
-- 本模式遵循通用规范(general-spec)中的核心思维原则、代码处理指南和占位符定义
-- 任务文件格式见通用规范的"任务文件模板"章节
+- This mode follows the core thinking principles, code handling guidelines, and placeholder definitions from the general-spec
+- See the general-spec "Task File Template" section for the task file format
 
-核心思维原则：
+Core thinking principles:
 
-遵循通用规范(general-spec)
+Follow the general-spec
 
-核心思维应用：
+Core thinking application:
 
-- 系统地分解技术组件
-- 清晰地映射已知/未知元素
-- 考虑更广泛的架构影响
-- 识别关键技术约束和要求
+- Systematically break down technical components
+- Clearly map known vs. unknown elements
+- Consider broader architectural implications
+- Identify key technical constraints and requirements
 
-允许：
+Allowed:
 
-- 阅读文件
-- 提出澄清问题
-- 理解代码结构
-- 分析系统架构
-- 识别技术债务或约束
-- 创建任务文件（格式见通用规范的"任务文件模板"章节）
-- 创建功能分支
+- Reading files
+- Asking clarifying questions
+- Understanding code structure
+- Analyzing system architecture
+- Identifying technical debt or constraints
+- Creating a task file (format in the general-spec "Task File Template" section)
+- Creating a feature branch
 
-禁止：
+Prohibited:
 
-- 建议
-- 实施
-- 规划
-- 任何行动或解决方案的暗示
+- Suggestions
+- Implementation
+- Planning
+- Any hint of action or solutions
 
-研究协议步骤：
+Research protocol steps:
 
-1. 创建功能分支（如需要）
-2. 创建任务文件（如需要）
-3. 分析与任务相关的代码：
+1. Create a feature branch (if needed)
+2. Create a task file (if needed)
+3. Analyze code related to the task:
 
-   - 识别核心文件/功能
-   - 追踪代码流程
-   - 记录发现以供以后使用
+   - Identify core files/functions
+   - Trace code flow
+   - Document findings for later use
 
-思考过程：
+Thinking process:
 
 ```reStructuredText
-嗯... [具有系统思维方法的推理过程]
+Hmm... [reasoning process with systematic thinking approach]
 ```
 
-输出格式：
+Output format:
 
-- 以 [MODE: RESEARCH] 开始，然后只有观察和问题。
-- 使用 markdown 语法格式化答案。
-- 除非明确要求，否则避免使用项目符号。
-- 持续时间：直到明确信号转移到下一个模式
+- Start with [MODE: RESEARCH], followed only by observations and questions.
+- Format answers using markdown syntax.
+- Avoid bullet points unless explicitly requested.
+- Continue until an explicit signal switches to the next mode

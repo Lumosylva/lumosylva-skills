@@ -1,81 +1,81 @@
 ---
 name: project-execute
-description: 按照项目通用规范(general-spec)中约定的要求生成信息。当用户需要执行模式(execute)时使用。
+description: Generates information following the conventions defined in the general-spec. Use when the user needs execute mode.
 ---
 
-# 模式4：执行
+# Mode 4: Execute
 
 project-execute
 
-目的：准确实施模式3(plan)中规划的内容
+Purpose: Accurately implement what was planned in Mode 3 (Plan)
 
-相关模式引用：
+Related mode references:
 
-- 本模式遵循通用规范(general-spec)中的核心思维原则、代码处理指南和占位符定义
-- 任务文件格式见通用规范的"任务文件模板"章节
-- 后续模式：审查模式(review)将验证本模式的实施结果与计划的符合度
-- 回退模式：若实施偏离计划，需返回规划模式(plan)重新调整
+- This mode follows the core thinking principles, code handling guidelines, and placeholder definitions from the general-spec
+- See the general-spec "Task File Template" section for the task file format
+- Next mode: Review mode will verify that this mode's implementation matches the plan
+- Rollback mode: If implementation deviates from the plan, return to Plan mode for readjustment
 
-核心思维原则：
+Core thinking principles:
 
-遵循通用规范(general-spec)
+Follow the general-spec
 
-核心思维应用：
+Core thinking application:
 
-- 专注于规范的准确实施
-- 在实施过程中应用系统验证
-- 保持对计划的精确遵循
-- 实施完整功能，具备适当的错误处理
+- Focus on accurate implementation of specifications
+- Apply systematic verification during implementation
+- Maintain precise adherence to the plan
+- Implement complete features with proper error handling
 
-允许：
+Allowed:
 
-- 只实施已批准计划中明确详述的内容
-- 完全按照编号清单进行
-- 标记已完成的清单项目
-- 实施后更新"任务进度"部分（这是执行过程的标准部分，被视为计划的内置步骤）
+- Only implement what is explicitly detailed in the approved plan
+- Follow the numbered checklist exactly
+- Mark completed checklist items
+- Update the "Task Progress" section after each implementation (this is a standard part of execution, considered a built-in step of the plan)
 
-禁止：
+Prohibited:
 
-- 任何偏离计划的行为
-- 计划中未指定的改进
-- 创造性添加或"更好的想法"
-- 跳过或缩略代码部分
+- Any deviation from the plan
+- Improvements not specified in the plan
+- Creative additions or "better ideas"
+- Skipping or abbreviating code sections
 
-执行协议步骤：
+Execution protocol steps:
 
-1. 完全按照计划实施更改
+1. Implement changes exactly as planned
 
-2. 每次实施后追加到"任务进度"（作为计划执行的标准步骤）：
+2. After each implementation, append to "Task Progress" (as a standard step of plan execution):
 
    ```reStructuredText
-   [日期时间]
-   - 已修改：[文件和代码更改列表]
-   - 更改：[更改的摘要]
-   - 原因：[更改的原因]
-   - 阻碍因素：[阻止此更新成功的阻碍因素列表]
-   - 状态：[未确认|成功|不成功]
+   [datetime]
+   - Modified: [list of files and code changes]
+   - Change: [summary of the change]
+   - Reason: [why this change was made]
+   - Blockers: [list of factors preventing this update from succeeding]
+   - Status: [unconfirmed|success|failure]
    ```
 
-3. 要求用户确认：“状态：成功/不成功？”
+3. Ask the user for confirmation: "Status: success/failure?"
 
-4. 如果不成功：返回 plan 模式
+4. If failure: return to Plan mode
 
-5. 如果成功且需要更多更改：继续下一项
+5. If success and more changes needed: continue to the next item
 
-6. 如果所有实施完成：移至 review 模式
+6. If all implementation is complete: switch to Review mode
 
-代码质量标准：
+Code quality standards:
 
-- 始终显示完整代码上下文
-- 在代码块中指定语言和路径
-- 适当的错误处理
-- 标准化命名约定
-- 清晰简洁的注释
+- Always show full code context
+- Specify language and path in code blocks
+- Proper error handling
+- Standardized naming conventions
+- Clear and concise comments
 
-偏差处理：  
+Deviation handling:
 
-如果发现任何需要偏离的问题，立即返回 plan 模式
+If any issue requiring deviation is found, immediately return to Plan mode
 
-输出格式：
+Output format:
 
-以 [MODE: EXECUTE] 开始，然后只有与计划匹配的实施。包括正在完成的清单项目。
+Start with [MODE: EXECUTE], followed only by implementation that matches the plan. Include which checklist item is being completed.

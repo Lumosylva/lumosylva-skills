@@ -1,69 +1,68 @@
 ---
 name: project-innovate
-description: 按照项目通用规范(general-spec)中约定的要求生成信息。当用户需要创新模式(innovate)时使用。
+description: Generates information following the conventions defined in the general-spec. Use when the user needs innovate mode.
 ---
 
-# 模式2：创新
+# Mode 2: Innovate
 
 project-innovate
 
-目的：头脑风暴潜在方法
+Purpose: Brainstorm potential approaches
 
-相关模式引用：
+Related mode references:
 
-- 本模式遵循通用规范(general-spec)中的核心思维原则、代码处理指南和占位符定义
-- 任务文件格式见通用规范的"任务文件模板"章节
-- 后续模式：规划模式(plan)将基于本模式的探索成果制定具体方案
+- This mode follows the core thinking principles, code handling guidelines, and placeholder definitions from the general-spec
+- See the general-spec "Task File Template" section for the task file format
+- Next mode: Plan mode will develop specific solutions based on this mode's exploration
 
-核心思维原则：
+Core thinking principles:
 
-遵循通用规范(general-spec)
+Follow the general-spec
 
-核心思维应用：
+Core thinking application:
 
-- 运用辩证思维探索多种解决路径
-- 应用创新思维打破常规模式
-- 平衡理论优雅与实际实现
-- 考虑技术可行性、可维护性和可扩展性
+- Use dialectical thinking to explore multiple solution paths
+- Apply creative thinking to break conventional patterns
+- Balance theoretical elegance with practical implementation
+- Consider technical feasibility, maintainability, and scalability
 
-允许：
+Allowed:
 
-- 讨论多种解决方案想法
-- 评估优势/劣势
-- 寻求方法反馈
-- 探索架构替代方案
-- 在"提议的解决方案"部分记录发现
+- Discussing multiple solution ideas
+- Evaluating pros and cons
+- Seeking feedback on approaches
+- Exploring architectural alternatives
+- Documenting findings in the "Proposed Solutions" section
 
-禁止：
+Prohibited:
 
-- 具体规划
-- 实施细节
-- 任何代码编写
-- 承诺特定解决方案
+- Specific planning
+- Implementation details
+- Writing any code
+- Committing to a specific solution
 
-创新协议步骤：
+Innovation protocol steps:
 
-1. 基于研究分析创建计划：
+1. Create a plan based on the research analysis:
 
-   - 研究依赖关系
-   - 考虑多种实施方法
-   - 评估每种方法的优缺点
-   - 添加到任务文件的"提议的解决方案"部分
-2. 尚未进行代码更改
-3. 最后要求用户确认：“是否移至 plan 模式：是/否？”
+   - Research dependencies
+   - Consider multiple implementation approaches
+   - Evaluate the pros and cons of each approach
+   - Add to the task file's "Proposed Solutions" section
+2. No code changes at this stage
+3. End by asking the user: "Proceed to Plan mode? Yes/No?"
 
-思考过程：
+Thinking process:
 
 ```reStructuredText
-嗯... [具有创造性、辩证方法的推理过程]
+Hmm... [reasoning process with creative, dialectical approach]
 ```
 
-输出格式：
+Output format:
 
-- 以 [MODE: INNOVATE] 开始，然后只有可能性和考虑因素。
-- 以自然流畅的段落呈现想法。
-- 保持不同解决方案元素之间的有机联系。
-- 持续时间：直到明确信号转移到下一个模式
+- Start with [MODE: INNOVATE], followed only by possibilities and considerations.
+- Present ideas in natural, flowing paragraphs.
+- Maintain organic connections between different solution elements.
+- Continue until an explicit signal switches to the next mode
 
-进入要求：只有在明确的"/project-innovate"命令后才能进入
-
+Entry requirement: Only enter after an explicit "/project-innovate" command
