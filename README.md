@@ -1,77 +1,75 @@
 # Lumosylva Skills
 
-A collection of Claude Code plugins providing structured expert programming skill workflows.
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+A collection of Agent Skills for structured software development workflows. Install them with the `skills` CLI.
 
 ## Design Philosophy
 
-AI coding tools tend to be overly eager—making changes without explicit permission and assuming they know better than the user. Lumosylva Skills enforces mandatory mode declarations and strict responsibility boundaries to ensure AI always does the right thing at the right stage, preventing unauthorized modifications and destructive changes.
+Lumosylva Skills separates investigation, exploration, planning, implementation, and review. Each mode has its own scope and authorization rules. Installing a skill does not activate it or override the agent's existing instructions and permissions.
 
-## Plugin List
+## Skills
 
-| Plugin | Description | Path |
-|--------|-------------|------|
-| [project](plugins/project) | Structured expert programming skills with five collaborative modes for rigorous software development workflows | `plugins/project` |
+The repository follows the `skills/<skill-name>/SKILL.md` layout:
+
+| Skill | Purpose |
+|-------|---------|
+| [general-spec](skills/general-spec/SKILL.md) | Optional workflow reference and task-file template |
+| [project-research](skills/project-research/SKILL.md) | Investigate a codebase |
+| [project-innovate](skills/project-innovate/SKILL.md) | Explore possible approaches |
+| [project-plan](skills/project-plan/SKILL.md) | Specify an implementation plan |
+| [project-execute](skills/project-execute/SKILL.md) | Implement the approved plan |
+| [project-review](skills/project-review/SKILL.md) | Verify the implementation |
+
+Each mode skill is self-contained. Install `general-spec` if you also want an overview and optional task-file template.
 
 ## Workflow Overview
 
 ```
-Research → Innovate → Plan → Execute → Review
-  ^                              |
-  └───── Rollback on issues ─────┘
+Research -> Innovate -> Plan -> Execute -> Review
+                          ^        |
+                          +-- issue (request project-plan)
 ```
 
-Each new session starts in **Research mode** by default. Switch to the next phase using explicit signal commands.
+Explicitly invoke the skill for the stage you need. No mode is automatically active at the start of a new session, and completion or failure does not switch modes on its own.
 
 ## Five Collaborative Modes
 
-| Mode | Command | Purpose | Core Capabilities |
+| Mode | Skill | Purpose | Core Capabilities |
 |------|---------|---------|-------------------|
-| Research | `/project-research` | Information gathering and deep understanding | Read files, analyze architecture, identify technical debt |
-| Innovate | `/project-innovate` | Brainstorm potential approaches | Explore multiple solutions, weigh pros and cons, document findings |
-| Plan | `/project-plan` | Create detailed technical specifications | File paths, function signatures, checklist generation |
-| Execute | `/project-execute` | Accurately implement the approved plan | Follow checklist item by item, track progress |
-| Review | `/project-review` | Verify implementation matches the plan | Line-by-line comparison, flag deviations, prepare commits |
+| Research | `project-research` | Understand the task and codebase | Read files and report constraints; no worktree changes by default |
+| Innovate | `project-innovate` | Compare approaches | Explore options and tradeoffs without implementation |
+| Plan | `project-plan` | Specify an implementation | Produce a checklist for user approval; no code changes |
+| Execute | `project-execute` | Implement an approved plan | Follow authorized steps and verify results |
+| Review | `project-review` | Assess the implementation | Report deviations and risks; no commits or fixes by default |
 
 ## Installation
 
-### Install from GitHub
-
 ```bash
-# Claude Code
-claude plugin install Lumosylva/lumosylva-skills
-
-# MiMoCode
-mimo plugin install Lumosylva/lumosylva-skills
+npx skills add Lumosylva/lumosylva-skills
 ```
 
-### Manual Installation
+The CLI may detect your agent or prompt for a target. Select the skills you need; each mode works independently. To list them without installing:
 
-Copy the plugin folders from the `plugins/` directory into your skills directory:
+```bash
+npx skills add Lumosylva/lumosylva-skills --list
+```
 
-- Claude Code: `.claude/skills/`
-- MiMoCode: `.mimocode/skills/`
+## Using The Modes
 
-## Core Protocol
+Explicitly request a skill by name using your agent's skill interface or a prompt such as "Use project-research to investigate this issue." Some agents expose `/project-research`-style shortcuts; availability depends on the agent. A "yes" to a plan is approval, not an instruction to activate `project-execute`: request that skill separately when ready.
 
-- **Mode Declaration**: Every response must begin with `[MODE: XXX]` declaring the current mode
-- **Responsibility Isolation**: Each mode may only perform actions allowed at that stage
-- **Rollback Mechanism**: When issues are discovered during execution, automatically return to Plan mode for readjustment
-- **Mode Switching**: Must be triggered by explicit signals (e.g., `/project-execute`); never switch on your own
+While a mode is active, replies start with `[MODE: RESEARCH]`, `[MODE: INNOVATE]`, `[MODE: PLAN]`, `[MODE: EXECUTE]`, or `[MODE: REVIEW]` and otherwise follow the user's language. Research, innovate, plan, and review are read-only by default. Task files, branches, commits, and pushes require separate authorization. Execute additionally requires an approved plan; changes outside it require revised approval.
 
-## Placeholders
+The optional `general-spec` skill includes a task-file template. It does not automatically load or activate the mode skills.
 
-| Placeholder | Description | Example |
-|-------------|-------------|---------|
-| `TASK_FILE_NAME` | Task file name | `2025-01-14_1` |
-| `TASK_IDENTIFIER` | Short task identifier | `fix-cache-bug` |
-| `MAIN_BRANCH` | Main branch name | `main` |
-| `YOLO_MODE` | Confirmation mode | `Ask` / `On` / `Off` |
+### Step Confirmations
 
-### Yolo Mode
+`YOLO_MODE` affects only per-step confirmation *after* the user has approved an execute plan. It does not authorize extra changes or destructive actions.
 
-- **Ask**: Prompt the user for confirmation before each step
-- **On**: Execute all steps automatically (high risk)
-- **Off** (default): Require user confirmation for every significant step
+- **Off** (default): Confirm each significant implementation step.
+- **Ask**: Confirm every implementation step.
+- **On**: Continue through approved steps without per-step confirmation.
 
 ## Contributing
 
