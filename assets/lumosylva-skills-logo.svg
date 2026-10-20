@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112" role="img" aria-labelledby="title desc">
+  <title id="title">Lumosylva Skills</title>
+  <desc id="desc">Five colorful nodes connected around a central light.</desc>
+  <rect x="4" y="4" width="104" height="104" rx="30" fill="#173D32"/>
+  <circle cx="56" cy="56" r="39" fill="#204B3E"/>
+  <path d="M56 56 56 21M56 56 83 41M56 56 73 80M56 56 39 80M56 56 29 41" fill="none" stroke="#D9E9DE" stroke-linecap="round" stroke-width="3.5"/>
+  <circle cx="56" cy="21" r="7" fill="#C8E986" stroke="#173D32" stroke-width="3"/>
+  <circle cx="83" cy="41" r="7" fill="#FFC874" stroke="#173D32" stroke-width="3"/>
+  <circle cx="73" cy="80" r="7" fill="#86C9F4" stroke="#173D32" stroke-width="3"/>
+  <circle cx="39" cy="80" r="7" fill="#FF9C83" stroke="#173D32" stroke-width="3"/>
+  <circle cx="29" cy="41" r="7" fill="#6DE0B0" stroke="#173D32" stroke-width="3"/>
+  <path d="m56 46 3.4 6.6L66 56l-6.6 3.4L56 66l-3.4-6.6L46 56l6.6-3.4z" fill="#FFF2C7"/>
+</svg>

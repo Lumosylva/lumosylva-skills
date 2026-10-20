@@ -1,11 +1,17 @@
-# Lumosylva Skills
+<p align="center">
+  <img src="assets/lumosylva-skills-logo.svg" alt="Lumosylva Skills logo" width="112" height="112">
+</p>
 
-[![Latest Release](https://img.shields.io/github/v/release/Lumosylva/lumosylva-skills)](https://github.com/Lumosylva/lumosylva-skills/releases/latest)
-[![GitHub Stars](https://img.shields.io/github/stars/Lumosylva/lumosylva-skills)](https://github.com/Lumosylva/lumosylva-skills/stargazers)
-[![License](https://img.shields.io/github/license/Lumosylva/lumosylva-skills)](LICENSE)
-[![Lumosylva Skills - skills.sh Compatible](https://img.shields.io/badge/Lumosylva%20Skills-skills.sh%20Compatible-2ea44f)](https://skills.sh/)
+<h1 align="center">Lumosylva Skills</h1>
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+<p align="center">
+  <a href="https://github.com/Lumosylva/lumosylva-skills/releases/latest"><img src="https://img.shields.io/github/v/release/Lumosylva/lumosylva-skills" alt="Latest Release"></a>
+  <a href="https://github.com/Lumosylva/lumosylva-skills/stargazers"><img src="https://img.shields.io/github/stars/Lumosylva/lumosylva-skills" alt="GitHub Stars"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Lumosylva/lumosylva-skills" alt="License"></a>
+  <a href="https://skills.sh/"><img src="https://img.shields.io/badge/Lumosylva%20Skills-skills.sh%20Compatible-2ea44f" alt="Lumosylva Skills - skills.sh Compatible"></a>
+</p>
+
+<p align="center"><a href="README.md">English</a> | <a href="README.zh-CN.md">简体中文</a></p>
 
 一组用于规范化软件开发流程的 Agent Skills，可通过 `skills` CLI 安装。
 
