@@ -3,6 +3,7 @@
 [![Latest Release](https://img.shields.io/github/v/release/Lumosylva/lumosylva-skills)](https://github.com/Lumosylva/lumosylva-skills/releases/latest)
 [![GitHub Stars](https://img.shields.io/github/stars/Lumosylva/lumosylva-skills)](https://github.com/Lumosylva/lumosylva-skills/stargazers)
 [![License](https://img.shields.io/github/license/Lumosylva/lumosylva-skills)](LICENSE)
+[![Lumosylva Skills - skills.sh Compatible](https://img.shields.io/badge/Lumosylva%20Skills-skills.sh%20Compatible-2ea44f)](https://skills.sh/)
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
