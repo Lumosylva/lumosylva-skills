@@ -53,6 +53,20 @@ Explicitly invoke the skill for the stage you need. No mode is automatically act
 | Execute | `project-execute` | Implement an approved plan | Follow authorized steps and verify results |
 | Review | `project-review` | Assess the implementation | Report deviations and risks; no commits or fixes by default |
 
+## Usage Examples
+
+The plan is presented for approval before implementation. After approval, execute follows the agreed scope and reports verification results.
+
+<p align="center">
+  <img src="assets/project-plan.png" alt="Project plan presented for approval" width="900">
+</p>
+<p align="center"><em>Plan the work and confirm its scope before implementation.</em></p>
+
+<p align="center">
+  <img src="assets/project-execute.png" alt="Project execution and verification summary" width="900">
+</p>
+<p align="center"><em>Execute the approved plan and report completed work and test results.</em></p>
+
 ## Installation
 
 ```bash

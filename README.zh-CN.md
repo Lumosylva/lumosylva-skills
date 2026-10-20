@@ -53,6 +53,20 @@ Lumosylva Skills 将调研、方案探索、规划、实施和审查分为不同
 | 执行 | `project-execute` | 实施已批准的计划 | 按授权步骤修改并验证结果 |
 | 审查 | `project-review` | 核查实施结果 | 报告偏差与风险，默认不修复或提交 |
 
+## 使用示例
+
+实施前先提交计划供用户确认；计划获批后，再按约定范围执行并汇报验证结果。
+
+<p align="center">
+  <img src="assets/project-plan.png" alt="等待用户批准的项目计划" width="900">
+</p>
+<p align="center"><em>先制定计划并确认实施范围。</em></p>
+
+<p align="center">
+  <img src="assets/project-execute.png" alt="项目执行与验证结果摘要" width="900">
+</p>
+<p align="center"><em>执行已批准的计划，并汇报完成内容与测试结果。</em></p>
+
 ## 安装
 
 ```bash
