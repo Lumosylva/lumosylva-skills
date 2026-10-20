@@ -1,5 +1,9 @@
 # Lumosylva Skills
 
+[![Latest Release](https://img.shields.io/github/v/release/Lumosylva/lumosylva-skills)](https://github.com/Lumosylva/lumosylva-skills/releases/latest)
+[![GitHub Stars](https://img.shields.io/github/stars/Lumosylva/lumosylva-skills)](https://github.com/Lumosylva/lumosylva-skills/stargazers)
+[![License](https://img.shields.io/github/license/Lumosylva/lumosylva-skills)](LICENSE)
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 A collection of Agent Skills for structured software development workflows. Install them with the `skills` CLI.
