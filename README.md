@@ -89,11 +89,13 @@ The optional `general-spec` skill includes a task-file template. It does not aut
 
 ### Step Confirmations
 
-`YOLO_MODE` affects only per-step confirmation *after* the user has approved an execute plan. It does not authorize extra changes or destructive actions.
+`YOLO_MODE` controls confirmations only within an approved execute plan. It is a conversational preference for one `project-execute` invocation, not an operating-system environment variable or persistent setting. Specify `YOLO_MODE=Ask` or `YOLO_MODE=On` when invoking `project-execute`; if omitted, the default is `Off`.
 
-- **Off** (default): Confirm each significant implementation step.
-- **Ask**: Confirm every implementation step.
-- **On**: Continue through approved steps without per-step confirmation.
+- **Off** (default): Ask and wait before each top-level checklist item; one approval covers its planned related changes.
+- **Ask**: Ask and wait before each separately reviewable change group within an item, not for every code line or tool call. Planned read-only inspection and verification do not require extra step confirmations.
+- **On**: Continue through the approved plan without intermediate confirmations.
+
+These are model-facing instructions, not an enforcement mechanism. They do not expand the approved scope or bypass client/tool permissions or separate authorization requirements.
 
 ## Contributing
 

@@ -56,10 +56,10 @@ Only create a task file when the user explicitly requests one. Choose its path w
 
 ## Step Confirmations
 
-`YOLO_MODE` controls confirmations *within an already approved execute plan*. It never grants permission to expand the plan, commit, or perform destructive actions.
+`YOLO_MODE` controls confirmations *within an already approved execute plan*. It is a conversational preference for one `project-execute` invocation, not an operating-system environment variable or persistent client setting. To select a non-default value, the user includes `YOLO_MODE=Ask` or `YOLO_MODE=On` when explicitly invoking `project-execute`. If omitted, use `Off`. Only the user may change it.
 
-- `Off` (default): Ask before each significant implementation step.
-- `Ask`: Ask before every implementation step.
-- `On`: Proceed through approved steps without per-step confirmation.
+- `Off` (default): Ask and wait for approval before each top-level item in the approved checklist. One approval covers the related changes already described by that item.
+- `Ask`: Ask and wait before each separately reviewable change group within a checklist item. Confirm independent groups separately, but do not ask for each code line or tool call. Read-only inspection and verification commands already authorized by the plan do not need separate step confirmations.
+- `On`: Proceed through all steps in the approved plan without intermediate confirmations.
 
-Only the user can change this setting. If no setting was specified, use `Off`.
+When confirmation is required, state the next action and pause until the user approves. These are model-facing workflow instructions, not an enforcement mechanism. The setting never authorizes scope expansion, commits, pushes, destructive actions, or bypassing client/tool permission prompts; obtain separate authorization where required.
