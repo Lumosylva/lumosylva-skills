@@ -92,7 +92,7 @@ The optional `general-spec` skill includes a task-file template. It does not aut
 `YOLO_MODE` controls confirmations only within an approved execute plan. It is a conversational preference for one `project-execute` invocation, not an operating-system environment variable or persistent setting. Specify `YOLO_MODE=Ask` or `YOLO_MODE=On` when invoking `project-execute`; if omitted, the default is `Off`.
 
 - **Off** (default): Ask and wait before each top-level checklist item; one approval covers its planned related changes.
-- **Ask**: Ask and wait before each separately reviewable change group within an item, not for every code line or tool call. Planned read-only inspection and verification do not require extra step confirmations.
+- **Ask**: Ask and wait before each separately reviewable change group within an item. A group includes all changes needed to deliver and verify one planned outcome, including directly related implementation, tests, and documentation across files. Split groups only when their outcomes have distinct acceptance criteria and can be delivered or reverted independently; do not split by file, code line, or tool call. Planned read-only inspection and verification do not require extra step confirmations.
 - **On**: Continue through the approved plan without intermediate confirmations.
 
 These are model-facing instructions, not an enforcement mechanism. They do not expand the approved scope or bypass client/tool permissions or separate authorization requirements.
