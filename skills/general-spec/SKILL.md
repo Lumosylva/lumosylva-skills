@@ -23,14 +23,16 @@ While a mode is active, start replies with `[MODE: RESEARCH]`, `[MODE: INNOVATE]
 
 ## Authorization
 
-- Research, innovate, plan, and review do not create or edit files, branches, or commits by default. Ask for explicit authorization before persisting a task file or making other state changes.
+- Research, innovate, plan, and review do not create or edit files, branches, or commits by default. Ask for explicit authorization before persisting a task file or making other state changes. When a user confirms a final plan and explicitly invokes `project-execute`, that invocation authorizes saving the approved plan and tracking its execution in a task file as described by the Execute skill.
 - Execute requires both an approved plan and an explicit request to use `project-execute`. The plan's approval authorizes only its stated scope; new work requires revised approval.
 - Creating a branch, making a commit, pushing, deleting data, or performing other consequential actions requires explicit authorization for that action, even in execute mode.
 - Report findings and verification results directly. Do not expose private reasoning or fabricate test results.
 
-## Optional Task File
+## Execute Task Record
 
-Only create a task file when the user explicitly requests one. Choose its path with the user or follow the repository's conventions; do not assume a branch name or hard-code `main`. A compact template is:
+After explicit `project-execute` invocation with an approved plan, record the plan and execution progress in a Markdown file under `<project-root>/.tasks/`; create `.tasks/` if it is missing. Inspect existing files before choosing a unique `YYYY-MM-DD_plan-xxx.md` filename, and do not overwrite existing plans. The task record contains the approved request and plan, approval status, scope, applicable interface/data conventions, verification items, checklist, and progress. Mark checklist items complete only after their relevant checks pass, and record outcomes or blockers. Task-file creation remains optional in other modes unless separately requested.
+
+A compact task record template is:
 
 ```markdown
 # Task
@@ -46,6 +48,15 @@ Only create a task file when the user explicitly requests one. Choose its path w
 
 ## Approved Plan
 [Steps and approval status]
+
+## Scope And Conventions
+[Scope, interfaces, and data conventions]
+
+## Verification
+[Checks required and their outcomes]
+
+## Checklist
+[Itemized work and status]
 
 ## Progress
 [Changes and verification]
