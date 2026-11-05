@@ -23,14 +23,14 @@ While a mode is active, start replies with `[MODE: RESEARCH]`, `[MODE: INNOVATE]
 
 ## Authorization
 
-- Research, innovate, plan, and review do not create or edit files, branches, or commits by default. Ask for explicit authorization before persisting a task file or making other state changes. When a user confirms a final plan and explicitly invokes `project-execute`, that invocation authorizes saving the approved plan and tracking its execution in a task file as described by the Execute skill.
-- Execute requires both an approved plan and an explicit request to use `project-execute`. The plan's approval authorizes only its stated scope; new work requires revised approval.
+- Research, innovate, plan, and review do not create or edit files, branches, or commits by default. Ask for explicit authorization before persisting a task file or making other state changes. When a final plan has been presented, explicit invocation of `project-execute` approves that plan by default and authorizes saving it and tracking execution in a task file as described by the Execute skill, unless the user rejects it or requests changes.
+- Execute requires a presented final plan and an explicit request to use `project-execute`. If no final plan has been presented, ask for one; a rejection or request for changes means the plan is not approved. The plan authorizes only its stated scope; new work requires a revised plan.
 - Creating a branch, making a commit, pushing, deleting data, or performing other consequential actions requires explicit authorization for that action, even in execute mode.
 - Report findings and verification results directly. Do not expose private reasoning or fabricate test results.
 
 ## Execute Task Record
 
-After explicit `project-execute` invocation with an approved plan, record the plan and execution progress in a Markdown file under `<project-root>/.tasks/`; create `.tasks/` if it is missing. Inspect existing files before choosing a unique `YYYY-MM-DD_plan-xxx.md` filename, and do not overwrite existing plans. The task record contains the approved request and plan, approval status, scope, applicable interface/data conventions, verification items, checklist, and progress. Mark checklist items complete only after their relevant checks pass, and record outcomes or blockers. Task-file creation remains optional in other modes unless separately requested.
+After explicit `project-execute` invocation with a presented final plan, record the plan and execution progress in a Markdown file under the Git worktree root's `.tasks/`. If the current directory is not in a Git worktree, use the single project/workspace root supplied by the client; ask the user to choose if multiple roots are ambiguous. If neither is available, use the current working directory. Create `.tasks/` if missing. Inspect existing files and create a unique `YYYY-MM-DD_plan-xxx.md` using an exclusive no-overwrite operation; on collision, retry with another suffix. If exclusive creation is unavailable, stop and record the blocker. The task record contains the approved request and plan, approval status, scope, applicable interface/data conventions, verification items, checklist, and progress. Mark checklist items complete only after their relevant checks pass, and record outcomes or blockers. Task-file creation remains optional in other modes unless separately requested.
 
 A compact task record template is:
 

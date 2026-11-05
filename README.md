@@ -83,9 +83,15 @@ npx skills add Lumosylva/lumosylva-skills --list
 
 Explicitly request a skill by name using your agent's skill interface or a prompt such as "Use project-research to investigate this issue." Some agents expose `/project-research`-style shortcuts; availability depends on the agent. A "yes" to a plan is approval, not an instruction to activate `project-execute`: request that skill separately when ready.
 
-While a mode is active, replies start with `[MODE: RESEARCH]`, `[MODE: INNOVATE]`, `[MODE: PLAN]`, `[MODE: EXECUTE]`, or `[MODE: REVIEW]` and otherwise follow the user's language. Research, innovate, plan, and review are read-only by default. Task files, branches, commits, and pushes require separate authorization. Execute additionally requires an approved plan; changes outside it require revised approval.
+While a mode is active, replies start with `[MODE: RESEARCH]`, `[MODE: INNOVATE]`, `[MODE: PLAN]`, `[MODE: EXECUTE]`, or `[MODE: REVIEW]` and otherwise follow the user's language. Research, innovate, plan, and review are read-only by default. Branches, commits, and pushes require separate authorization. Execute requires an approved plan and an explicit `project-execute` request; that invocation authorizes saving the approved plan and tracking execution progress in `.tasks/`. Changes outside the approved plan require revised approval.
 
-The optional `general-spec` skill includes a task-file template. It does not automatically load or activate the mode skills.
+The optional `general-spec` skill includes a workflow overview and a reusable task-record template. Execute saves an approved plan automatically when invoked; task files in other modes remain optional unless requested. Installing `general-spec` does not automatically load or activate the mode skills.
+
+When a final plan has been presented, explicitly requesting `project-execute` approves it by default unless you reject it or request changes. A "yes" alone does not activate Execute.
+
+### Execute Task Records
+
+Execute uses the current directory's Git worktree root for `.tasks/`. Outside a Git worktree, it uses a single project/workspace root supplied by the client; if several roots are ambiguous, it asks you to choose. If no root is available, it uses the current directory. It creates `.tasks/` if needed and saves the plan, checklist, applicable interface and data conventions, verification items, and progress in a `YYYY-MM-DD_plan-xxx.md` file. It creates files exclusively without overwriting; if a name is taken, it retries with another suffix. If exclusive creation is unavailable, it stops and records the blocker.
 
 ### Step Confirmations
 

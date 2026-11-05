@@ -83,9 +83,15 @@ npx skills add Lumosylva/lumosylva-skills --list
 
 请通过 Agent 的技能界面，或使用“请用 project-research 调研这个问题”之类的提示明确调用技能。有些 Agent 支持 `/project-research` 等快捷指令，具体取决于客户端。回答“同意”只表示批准计划，不会自动启用 `project-execute`；准备实施时请另行调用该技能。
 
-模式生效期间，回复以 `[MODE: RESEARCH]`、`[MODE: INNOVATE]`、`[MODE: PLAN]`、`[MODE: EXECUTE]` 或 `[MODE: REVIEW]` 开头，其余内容遵循用户使用的语言。调研、构思、规划和审查默认只读。创建任务文件、分支、提交和推送都需另行授权。执行还必须有已批准的计划；超出计划的改动需要重新批准。
+模式生效期间，回复以 `[MODE: RESEARCH]`、`[MODE: INNOVATE]`、`[MODE: PLAN]`、`[MODE: EXECUTE]` 或 `[MODE: REVIEW]` 开头，其余内容遵循用户使用的语言。调研、构思、规划和审查默认只读。创建分支、提交和推送需另行授权。执行必须有已批准的计划，并由用户明确调用 `project-execute`；该调用授权将批准的计划和执行进度记录到 `.tasks/`。超出批准计划的改动需要重新批准。
 
-可选的 `general-spec` 技能提供任务文件模板，但不会自动加载或启用各模式技能。
+可选的 `general-spec` 技能提供流程概览和可复用的任务记录模板。用户明确调用 Execute 执行已批准计划后，计划记录会自动保存；其他模式的任务文件仍为可选，除非用户另行提出要求。安装 `general-spec` 不会自动加载或启用各模式技能。
+
+如果已呈现最终计划，用户明确调用 `project-execute` 默认视为批准该计划，除非用户拒绝或要求修改。单独回复“同意”不会启用 Execute。
+
+### Execute 任务记录
+
+Execute 会优先将当前目录所属 Git worktree 根目录作为 `.tasks/` 位置；若当前目录不在 Git worktree，则使用客户端提供的唯一项目/工作区根目录。存在多个且无法判断时会询问用户；没有可用根目录时使用当前工作目录。若 `.tasks/` 不存在则自动创建，并将计划、执行清单、适用的接口和数据约定、验证项及进度保存到 `YYYY-MM-DD_plan-xxx.md` 文件。文件以独占且不覆盖的方式创建；若名称冲突则更换后缀重试。工具不支持安全的独占创建时会停止并记录阻塞原因。
 
 ### 步骤确认
 
