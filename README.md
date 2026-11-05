@@ -67,6 +67,13 @@ The plan is presented for approval before implementation. After approval, execut
 </p>
 <p align="center"><em>Execute the approved plan and report completed work and test results.</em></p>
 
+After confirming a step, set `YOLO_MODE=On` to continue through the remaining approved steps without intermediate confirmations. Execute still verifies each step and records its results.
+
+<p align="center">
+  <img src="assets/yolo-mode-on.png" alt="Example of setting YOLO_MODE=On during project execution" width="900">
+</p>
+<p align="center"><em>Use YOLO_MODE=On to continue the approved checklist without pausing between steps.</em></p>
+
 ## Installation
 
 ```bash

@@ -67,6 +67,13 @@ Lumosylva Skills 将调研、方案探索、规划、实施和审查分为不同
 </p>
 <p align="center"><em>执行已批准的计划，并汇报完成内容与测试结果。</em></p>
 
+确认某一步后，可设置 `YOLO_MODE=On`，让 Execute 连续完成已批准计划中的剩余步骤，不再逐步暂停确认。Execute 仍会验证每一步并记录检查结果。
+
+<p align="center">
+  <img src="assets/yolo-mode-on.png" alt="在项目执行中设置 YOLO_MODE=On 的示例" width="900">
+</p>
+<p align="center"><em>使用 YOLO_MODE=On 连续执行已批准的清单，无需在步骤之间暂停。</em></p>
+
 ## 安装
 
 ```bash
